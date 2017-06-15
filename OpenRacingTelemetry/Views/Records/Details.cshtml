@@ -1,0 +1,53 @@
+@model OpenRacingTelemetry.Models.Record
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Record Details</h2>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeStart)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeStart)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeEnd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimeEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimePenalty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TimePenalty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RaceId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RaceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

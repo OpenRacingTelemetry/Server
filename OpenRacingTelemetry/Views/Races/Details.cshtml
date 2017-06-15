@@ -1,0 +1,105 @@
+@model OpenRacingTelemetry.Models.Race
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Race details</h2>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+    </dl>
+
+    <hr />
+
+@if (Model.Records != null)
+{
+    <h3>Race Records</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Time Start
+                </th>
+                <th>
+                    Time End
+                </th>
+                <th>
+                    Time Penalty
+                </th>
+                <th>
+                    Time Total
+                </th>
+                <th>
+                    Notes
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.Records.Count(); i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.Records[i].Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Records[i].TimeStart)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Records[i].TimeEnd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Records[i].TimePenalty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Records[i].TimeTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Records[i].Notes)
+                    </td>
+                    <td>
+                        <a class="btn btn-default" asp-controller="Records" asp-action="Edit" asp-route-id="@Model.Records.ElementAt(i).Id">Edit</a>
+                        <a class="btn btn-default" asp-controller="Records" asp-action="Details" asp-route-id="@Model.Records.ElementAt(i).Id">Details</a>
+                        <a class="btn btn-danger" asp-controller="Records" asp-action="Delete" asp-route-id="@Model.Records.ElementAt(i).Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        }
+</div>
+<hr />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

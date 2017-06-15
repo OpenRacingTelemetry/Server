@@ -1,0 +1,60 @@
+@model IEnumerable<OpenRacingTelemetry.Models.Race>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Races</h2>
+<hr />
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RaceId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Weather)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RaceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weather)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <a class="btn btn-default" asp-action="Edit" asp-route-id="@item.RaceId">Edit</a>
+                <a class="btn btn-default" asp-action="Details" asp-route-id="@item.RaceId">Details</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.RaceId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

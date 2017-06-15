@@ -1,0 +1,69 @@
+@model OpenRacingTelemetry.Models.Record
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Record</h2>
+<hr />
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="TimeStart" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TimeStart" class="form-control" />
+                <span asp-validation-for="TimeStart" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TimeEnd" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TimeEnd" class="form-control" />
+                <span asp-validation-for="TimeEnd" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TimePenalty" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TimePenalty" class="form-control" />
+                <span asp-validation-for="TimePenalty" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RaceId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RaceId" class="form-control" />
+                <span asp-validation-for="RaceId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Notes" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+        </div> 
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
